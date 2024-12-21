@@ -17,9 +17,13 @@ input[type='file'] {
     margin-right: 1rem;
 }
 
+body {
+    margin-left: 20px;
+}
+
 .root {
-    display: inline-block;
-    border: 1px solid black;
+    width: 840px;
+    margin: 20px 0;
 }
 
 .root div {
@@ -27,24 +31,73 @@ input[type='file'] {
     align-items: center;
 }
 
-.root div div {
+.root div div, a {
     display: flex;
     justify-content: center;
     border: 1px solid black;
+    padding: 1px 0;
 }
 
 .number {
-    width: 60px;
+    width: 50px;
 }
 
 .correct {
-    width: 60px;
+    width: 50px;
 }
 
 .big {
     width: 180px;
 }
 
+.middle {
+    width: 240px;
+}
+
 .small {
-    width: 220px;
+    width: 260px;
+}
+
+.link {
+    width: 60px;
+}
+
+.source {
+    text-decoration: none;
+    color: rgb(1, 77, 0);
+    transition: .4s;
+}
+
+.source:hover {
+    opacity: 0.5;
+}
+
+
+.operation-button {
+    display: flex;
+    margin: 20px 0;
+}
+
+.operation-button .part {
+    border: 1px solid black;
+    display: flex;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.operation-button .part div {
+    padding: 10px 15px;
+}
+
+.information {
+    margin: 20px 0 120px 0;
+}
+
+.information div {
+    display: flex;
+}
+
+.information div p {
+    margin: 0;
+    font-size: 18px;
 }
