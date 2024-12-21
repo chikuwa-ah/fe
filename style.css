@@ -1,0 +1,50 @@
+input[type='file'] {
+    color: rgb(31, 41, 55);
+    cursor: pointer;
+    border: 1px solid rgb(191, 194, 199);
+    padding-right: 0.5rem;
+    width: 24rem;
+}
+
+::file-selector-button,
+::-webkit-file-upload-button {
+    background-color: rgb(209, 213, 219);
+    color: rgb(31, 41, 55);
+    border: none;
+    cursor: pointer;
+    border-right: 1px solid rgb(191, 194, 199);
+    padding: 0.25rem 1rem;
+    margin-right: 1rem;
+}
+
+.root {
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.root div {
+    display: flex;
+    align-items: center;
+}
+
+.root div div {
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.number {
+    width: 60px;
+}
+
+.correct {
+    width: 60px;
+}
+
+.big {
+    width: 180px;
+}
+
+.small {
+    width: 220px;
+}
