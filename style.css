@@ -74,14 +74,14 @@ body {
 
 
 .operation-button {
-    display: flex;
     margin: 20px 0;
 }
 
 .operation-button .part {
+    width: fit-content;
     border: 1px solid black;
     display: flex;
-    margin-right: 20px;
+    margin: 10px 0;
     cursor: pointer;
 }
 

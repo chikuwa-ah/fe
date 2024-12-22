@@ -15,6 +15,7 @@ const initialMethod = (file) => {
     const searchCriteria = new SearchCriteria(needData);
     const buttonEvent = new ButtonEvent(searchCriteria);
     buttonEvent.addEvent();
+    fileLoad(buttonEvent);
 };
 
 const arrayCSV = (file) => {
@@ -135,6 +136,13 @@ const removeMiddleButton = () => {
     };
 };
 
+const removeButton = () => {
+    const parent = document.querySelector('.operation-button');
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    };
+};
+
 
 //EVENT
 class ButtonEvent {
@@ -156,8 +164,13 @@ class ButtonEvent {
     addEvent() {
         this.target.addEventListener('click', this.handleButtonClick);
     };
+
+    removeEvent() {
+        this.target.removeEventListener('click', this.handleButtonClick);
+    };
 };
 
+//BUTTON CONDITION MANAGER
 class SearchCriteria {
     condition = [0, 0, 0];
     constructor(data) {
@@ -174,7 +187,7 @@ class SearchCriteria {
                 buttonBackColor(2, 0);
             };
         };
-        changeCondition(this.condition, index, this.data);
+        filteringData(this.condition, index, this.data);
     };
 
     getCondition() {
@@ -182,7 +195,7 @@ class SearchCriteria {
     };
 };
 
-const changeCondition = (nowCondition, changeGenre, data) => {
+const filteringData = (nowCondition, changeGenre, data) => {
     buttonBackColor(changeGenre, nowCondition[changeGenre]);
     removeTable();
 
@@ -213,8 +226,12 @@ const buttonBackColor = (genre, index) => {
     genreList[genre].children[index].style.backgroundColor = '#bababa';
 };
 
-window.addEventListener('DOMContentLoaded', () => {
+
+const fileLoad = (buttonEvent) => {
     document.querySelector('input').addEventListener('change', (e) => {
+        if (buttonEvent) buttonEvent.removeEvent();
+        removeButton();
+        removeTable();
         const result = e.target.files[0];
         const reader = new FileReader();
         reader.readAsArrayBuffer(result);
@@ -224,5 +241,9 @@ window.addEventListener('DOMContentLoaded', () => {
             const decodedText = decoder.decode(arrayBuffer);
             initialMethod(decodedText);
         });
-    });
+    }, { once: true });
+};
+
+window.addEventListener('DOMContentLoaded', () => {
+    fileLoad();
 });
